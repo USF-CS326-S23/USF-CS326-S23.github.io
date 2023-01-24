@@ -29,6 +29,8 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
+  Syllabus:
+    - '/assignments/Spring-2023-CS-326-01-Operating-Systems.pdf'
   Canvas:
     - 'https://usfca.instructure.com/courses/1611734'
   Inclass Code:
