@@ -29,12 +29,15 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
-  Syllabus:
-    - '/assignments/Spring-2023-CS-326-01-Operating-Systems.pdf'
+  Campuswire:
+    - 'https://campuswire.com/c/G70535EB2/feed'
   Canvas:
     - 'https://usfca.instructure.com/courses/1611734'
   Inclass Code:
     - 'https://github.com/USF-CS326-S23/inclass'
+  Syllabus:
+    - '/assignments/Spring-2023-CS-326-01-Operating-Systems.pdf'
+
 footer_content:
 
 # Collections for website data
