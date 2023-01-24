@@ -127,7 +127,7 @@ Host griffin
 Notes:
 - UseKeychain only applies to macOS
 - The github.com entry will be used to securing access your GitHub repos
-- Make sure to put your username where you see <your_username>
+- Make sure to put your username where you see ```<your_username>```
 
 Once you have editor or created ```.ssh/config```, set its permissions:
 
@@ -216,6 +216,8 @@ $ mkdir test-xv6
 $ cd test-xv6
 $ git clone git@github.com:mit-pdos/xv6-riscv.git
 ```
+
+## Compile and Run xv6
 
 Now, you can cd into the xv6-riscv directory and compile and run xv6:
 
