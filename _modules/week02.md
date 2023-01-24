@@ -1,5 +1,5 @@
 ---
-title: Week 02
+title: Week02
 ---
 
 Mon, Jan 30

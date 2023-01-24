@@ -1,5 +1,5 @@
 ---
-title: Week 01
+title: Week01
 ---
 
 Tue, Jan 24

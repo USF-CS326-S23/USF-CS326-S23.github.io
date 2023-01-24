@@ -8,11 +8,10 @@ permalink: /notes/lecture01
 
 # Lecture01 - Introduction to Operation Systems
 
-
 CS 326 goals
   * Understand operating system (OS Kernel) design and implementation
-  * Hands-on experience extending a small OS (xv6)
   * Hands-on experience writing systems software
+  * Hands-on experience extending a small OS (xv6)
 
 What is the purpose of an OS?
   * Abstract the hardware for convenience and portability
@@ -59,10 +58,11 @@ Why is OS design+implementation hard and interesting?
   * Unforgiving environment: quirky h/w, hard to debug
 
 You'll be glad you took this course if you...
-  * Care about what goes on under the hood
+  * Want to know what goes on under the hood
   * Like infrastructure
   * Need to track down bugs or security problems
   * Care about high performance
+  * Want to become a better programmer
 
 Cool stuff we will do
   * Build a user-level memory allocator
@@ -81,15 +81,19 @@ Class structure
     * Schedule, assignments (labs and projects)
   * Campuswire: announcements, discussion, help
 
-Lectures
+Lectures and Lab Sections
   * OS ideas
   * Case study of xv6, a small OS, via code and xv6 book
   * Code examples
   * Lab/project background
   * OS papers
     * Submit a question about each reading, before lecture.
+  * 10 minute break in the middle of class
+  * Class attendance is not required, but...
+  * Remote attenance is allow, I will make Zoom links available
+   
 
-Labs/Projects: 
+Labs and Projects: 
   * The point: hands-on experience
   * Mostly one week each.
   * Labs are low stakes and low points
