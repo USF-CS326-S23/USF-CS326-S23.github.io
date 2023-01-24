@@ -1,16 +1,16 @@
 ---
-title: Introduction to Java
+title: Week 01
 ---
 
-Sep 28
-: [Java & Git](#)
-  : [1.1](#)
+Tue, Jan 24
+: [Introduction to OS](#)
+  : [Notes](#)
 
-Sep 29
+Wed, Jan 25
 : **Section**{: .label .label-purple }[Intro to Java](#)
   : [Solution](#)
 
-Sep 30
+Thu, Jan 26
 : [Variables & Objects](#)
   : [1.2](#), [2.1](#)
 

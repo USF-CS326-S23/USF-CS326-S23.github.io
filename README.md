@@ -1,12 +1,21 @@
 ---
 layout: home
-title: Just the Class
-nav_exclude: true
+title: Home
+nav_order: 1
+#nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: Just the Class
+  name: CS 326 Operating Systems Spring 2023
 ---
+
+# CS 326 Operating Systems
+Spring 2023
+
+{% for module in site.modules %}
+{{ module }}
+{% endfor %}
+
 
 # Just the Class
 
