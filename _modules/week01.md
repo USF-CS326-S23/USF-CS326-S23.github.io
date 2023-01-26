@@ -14,6 +14,11 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/9ofXGqR6V8RxxUUHkp8I1x5CdP9J
   
 Wed, Jan 25
 : **Lab**{: .label .label-purple } Dev Setup for xv6
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/5msyughU4OrA1nRyRmlvDR3nTGcYnr_23GxcTwCz3RiyfnRDBWH-Db80omvahU7t.PRc1GB62uu6gQM2q?startTime=1674694547000),
+          [iPad Notes](/files/CS326-01 2023-01-25 Lab Dev Setup.pdf)
+&nbsp; &nbsp;
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/oEF5U5twP43YXAE7O_ekTlkx3_LytmRA5wCVnQKz8YAQEiI16ptpJk2os_T7dY_y.32ngscUnvY_q5MCW?startTime=1674700252000),
+        [iPad Notes](/files/CS326-02 2023-01-25 Lab Dev Setup.pdf)
 
 Thu, Jan 26
-: **Lec**{: .label .label-green } [C Programming in xv6](#)
+: **Lec**{: .label .label-green } [C Programming in xv6](/notes/lecture02)

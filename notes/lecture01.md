@@ -8,28 +8,28 @@ permalink: /notes/lecture01
 
 # Lecture01 - Introduction to Operation Systems
 
-CS 326 goals
-  * Understand operating system (OS Kernel) design and implementation
-  * Hands-on experience writing systems software
-  * Hands-on experience extending a small OS (xv6)
+## CS 326 goals
+  - Understand operating system (OS Kernel) design and implementation
+  - Hands-on experience writing systems software
+  - Hands-on experience extending a small OS (xv6)
+  
+## What is the purpose of an OS?
+  - Abstract the hardware for convenience and portability
+  - Multiplex the hardware among many applications
+  - Isolate applications in order to contain bugs
+  - Allow sharing among cooperating applications
+  - Control sharing for security
+  - Don't get in the way of high performance
+  - Support a wide range of applications
 
-What is the purpose of an OS?
-  * Abstract the hardware for convenience and portability
-  * Multiplex the hardware among many applications
-  * Isolate applications in order to contain bugs
-  * Allow sharing among cooperating applications
-  * Control sharing for security
-  * Don't get in the way of high performance
-  * Support a wide range of applications
+**Organization: layered picture**
+  - [user/kernel diagram]
+  - User applications: vi, gcc, chrome, databases
+  - Kernel services
+  - Hardware: CPU, RAM/memory, disk, networking
+  - We care a lot about the interfaces and internal kernel structure
 
-Organization: layered picture
-  * [user/kernel diagram]
-  * User applications: vi, gcc, chrome, databases
-  * Kernel services
-  * Hardware: CPU, RAM/memory, disk, networking
-  * We care a lot about the interfaces and internal kernel structure
-
-What services does an OS kernel typically provide?
+**What services does an OS kernel typically provide?**
   * Process (a running program)
   * Memory allocation
   * File contents
@@ -37,7 +37,7 @@ What services does an OS kernel typically provide?
   * Access control (security)
   * Many others: users, IPC, network, time, terminals
 
-What's the application / kernel interface?
+**What's the application / kernel interface?**
   * "System calls"
   * Examples, in C, from UNIX (e.g. Linux, macOS, FreeBSD):
 
@@ -47,11 +47,11 @@ What's the application / kernel interface?
 
   * These look like function calls but they aren't 
 
-Why is OS design+implementation hard and interesting?
+**Why is OS design+implementation hard and interesting?**
   * Many design tensions:
-    - Efficient vs abstract/portable/general-purpose
-    - Powerful vs simple interfaces
-    - Flexible vs secure
+    * Efficient vs abstract/portable/general-purpose
+    * Powerful vs simple interfaces
+    * Flexible vs secure
   * Features interact: `fd = open(); fork()`
   * Uses are varied: laptops, smart-phones, cloud, virtual machines, embedded
   * Evolving hardware: multi-core, GPUs, fast networks
