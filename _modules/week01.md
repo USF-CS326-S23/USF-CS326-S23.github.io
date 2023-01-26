@@ -21,4 +21,4 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/oEF5U5twP43YXAE7O_ekTlkx3_Ly
         [iPad Notes](/files/CS326-02 2023-01-25 Lab Dev Setup.pdf)
 
 Thu, Jan 26
-: **Lec**{: .label .label-green } [C Programming in xv6](/notes/lecture02)
+: **Lec**{: .label .label-green } [C Programming](/notes/lecture02)
