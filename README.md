@@ -10,7 +10,7 @@ seo:
 ---
 
 # CS 326 Operating Systems
-Spring 2023
+Spring 2023 &nbsp; &nbsp; &nbsp; &nbsp; [Sec 01 Zoom](https://usfca.zoom.us/j/83850643096)  &nbsp; &nbsp; [Sec 02 Zoom](https://usfca.zoom.us/j/84322232934)
 
 {% for module in site.modules %}
 {{ module }}
