@@ -334,3 +334,100 @@ $ sumargs 1 2 3 4 5
 15
 ```
 
+## Autograder
+
+For testing and grading your assignments we are going to use the [Autograder](https://github.com/phpeterson-usf/autograder). To get the autograder working you need to clone the Autograder repo into your home directory on griffin and you need to clone the [CS 326 2023S test repo](https://github.com/USF-CS326-S23/tests). Here are the details.
+
+Pick a place in your home directory to clone the Autograder. For example, I created a directory called ```cs326-2023s``` in my home directory, and cloned the autograder in this directory:
+
+```text
+% ssh griffin
+$ mkdir cs326-2023s
+$ cd cs326-2023s
+$ git clone git@github.com:phpeterson-usf/autograder.git
+```
+
+Note: Repos that start with git@github.com require that you have ssh access to GitHub configured properly.
+
+No we need to make sure the grade program is available on your PATH.  A common approach is to create a local bin directory in your home directory ```~/.local/bin``` and put this on your PATH. We can link the grade program to this location:
+
+```text
+$ cd
+$ mkdir .local
+$ mkdir .local/bin
+$ ln -s ~/cs326-2023s/autograder/grade ~/.local/bin/grade
+```
+
+Next, you need to put ```~/.local/bin``` on your PATH. Using a console-based editor, put the following into ```~/.bash_profile```:
+
+```text
+export PATH=~/.local/bin:$PATH
+```
+
+To get the PATH environment variable set you can log out and the log back into griffin:
+
+```text
+$ exit
+% ssh griffin
+```
+
+The Autograder requires a relatively modern version of Python in order to run properly. The default version of Python on griffin is 3.6.8, which is too old. We have installed Python 3.10 on griffin but we need to get this version to appear on your PATH before the older version. To do this, we can create a link from your ```~/.local/bin``` directory to Python 3.10:
+
+```text
+$ cd
+$ ln -s /usr/bin/python3.10 ~/.local/bin/python3
+```
+
+Now, when you run python3, you should see:
+
+```text
+$ python3
+Python 3.10.8 (main, Oct 15 2022, 14:44:57) [GCC 8.5.0 20210514 (Red Hat 8.5.0-10)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+Type CTRL-D to exit python.
+
+Now you should be able to run the grade program:
+
+```text
+$ grade
+usage: grade [-h] [-d DATE] [-e EXEC_CMD] [-n TEST_NAME] [-p PROJECT]
+             [-s STUDENTS [STUDENTS ...]] [-v] [-vv]
+             {class,clone,exec,pull,test,upload}
+grade: error: the following arguments are required: action
+```
+
+Next we need to clone the cs326 tests repo and configure the Autograder to point to this repo:
+
+```text
+$ cd
+$ cs cs326-2023s
+$ clone git@github.com:USF-CS326-S23/tests.git
+```
+
+Next, you need to edit the Autograder configuration file with a console-based editor:
+
+```text
+$ micro ~/.config/grade/config.toml
+```
+
+In this file, uncomment and change the `tests_path` to:
+
+```text
+tests_path = "~/cs326-2023s/tests"
+```
+
+If everything is correct, you can now go to your lab01 repo and type:
+
+```text
+grade test -p lab01
+. 01(50)+ 02(50)+ 100/100
+```
+
+If you fail a test you can use the -v (or -vv) option to see the output:
+
+```text
+grade test -p lab01 -v
+```
