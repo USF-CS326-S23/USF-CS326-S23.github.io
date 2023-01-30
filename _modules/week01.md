@@ -22,3 +22,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/oEF5U5twP43YXAE7O_ekTlkx3_Ly
 
 Thu, Jan 26
 : **Lec**{: .label .label-green } [C Programming](/notes/lecture02)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/mvv7-xRLlif8J69w8vi48fOLBIqZc18_6yb2Lu9QPyFqBcY_aj9PwX3PPwLA6wOT.O693H9IOEZ1L5RLP?startTime=1674749135000),
+          [iPad Notes](/files/CS326-01 2023-01-26 C Programming.pdf)
+&nbsp; &nbsp;
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/-ZDtkiwPa1PoKWHMW4VAGKLYG-PjDhZ0WaIqwy6xwK0JhtOadXmyr8wKF0zyR_1j.brlAkyughFuoCquD?startTime=1674772702000),
+        [iPad Notes](/files/CS326-02 2023-01-26 C Programming.pdf)
