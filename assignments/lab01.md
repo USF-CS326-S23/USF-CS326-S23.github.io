@@ -8,7 +8,7 @@ permalink: /assignments/lab01
 
 # Lab01 - Getting started with xv6
 
-## Deliverables due Mon Jan 30 in your Lab01 GitHub repo
+## Deliverables due Mon Jan 30 by 11:59pm in your Lab01 GitHub repo
 
 - A copy of xv6 with new user programs described below
 
