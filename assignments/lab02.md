@@ -15,7 +15,7 @@ permalink: /assignments/lab02
 
 ## Overview
 
-Currently, xv6 only provides a limited number of common Unix commands the commands that are provided are simple implementations. In this lab we are going to extend two existing commands (wc and cat) and add a new command (sort). In order to support these commands you will need to understand the existing source code, basic usage of command line arguments, file descriptors, and a linked list implemenation.
+Currently, xv6 only provides a limited number of common Unix commands and the commands that are provided are simple implementations. In this lab we are going to extend two existing commands (wc and cat) and add a new command (sort). In order to support these commands you will need to understand the existing source code, basic usage of command line arguments, file descriptors, and a linked list implemenation.
 
 ## Line count only for wc (EASY)
 
@@ -58,6 +58,11 @@ $ cat README | wc -l
 49
 ```
 
+Notes:
+- The file ```listtest.txt``` does not exist by default in the xv6 file system, you need to create it with ```listtest > listtest.txt```.
+- You can assume that ```-l``` is the first argument to wc if it exists.
+
+
 ## Line numbers for cat (MODERATE)
 
 The cat command, by default, simply outputs the contents of the files provided as arguments:
@@ -94,7 +99,7 @@ Note: The line number column is 8 characters. 6 for the line number and 2 spaces
 
 For this part of the lab you need to modify the existing xv6 implementation of cat to  support for the ```-n``` option.
 
-Just like wc, cat can accept multiple filenames as arguments and it can also accept input from stdin. Your support for ```-n``` should work both with multiple files and stdin. For example:
+Just like wc, cat can accept multiple filenames as arguments and it can also accept input from stdin. Your support for ```-n``` should work both with multiple files and stdin. Also like wc you can assume the ```-n``` is the first argument to cat if it exists. For example:
 
 ```text
 $ listtest | cat -n
@@ -280,4 +285,5 @@ main(int argc, char *argv[])
 }
 ```
 
-My solution is about 100 lines of code.
+My solution is about 100 lines of code. This includes the ```readline()``` function. So the actual number of lines of code you have to write is about 65 lines.
+
