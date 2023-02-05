@@ -46,7 +46,7 @@ Last login: Tue Jan 24 00:13:49 2023 from stargate.cs.usfca.edu
 [benson@griffin ~]$
 ```
 
-Note: on my Mac, my shell prompt is '%' because I'm using zsh. Your prompt might be '%' if you are using bash or another shell.
+Note: on my Mac, my shell prompt is '%' because I'm using zsh. Your prompt might be '$' if you are using bash or another shell.
 
 If you are going to use griffin often, then you don't want to have to type your password twice each time you want to login. We can use ssh keys and some ssh configuration so that we can just type:
 
@@ -60,7 +60,7 @@ to login remotely.
 
 We can create an ssh keypair and put your public key on stargate, which also puts it on griffin because your home directory is shared on both machines. If you already have a keypair that you use, then you can skip the key creation step. However, it's not a bad idea to create a keypair specifically for use in this class. 
 
-In a terminal on your computer, cd into your .ssh directory:
+In a terminal on **your computer**, cd into your .ssh directory:
 
 ```text
 % cd
@@ -78,7 +78,7 @@ The chmod command restricts access to the .ssh directory and is needed by ssh to
 
 ```text
 % cd .ssh
-% ssh-keygen -t ed25519 -C "your_email@dons.usfca.edu" -f id_ed25519_cs326_2023s
+% ssh-keygen -t ed25519 -C "your_username@dons.usfca.edu" -f id_ed25519_cs326_2023s
 ```
 
 You will be asked to enter a passphrase, which is a just a password, but you should make it multple words or a sentence that you can remember.
@@ -106,36 +106,36 @@ Host github.com
   AddKeysToAgent yes
   ForwardAgent yes
   IdentityFile ~/.ssh/id_ed25519_cs326_2023s
-  User <your_username>
+  User your_username
 
 Host stargate
   HostName stargate.cs.usfca.edu
   AddKeysToAgent yes
   ForwardAgent yes
   IdentityFile ~/.ssh/id_ed25519_cs326_2023s
-  User <your_username>
+  User your_username
 
 Host griffin
   HostName griffin
   AddKeysToAgent yes
   ForwardAgent yes
   IdentityFile ~/.ssh/id_ed25519_cs326_2023s
-  User <your_username>
+  User your_username
   ProxyCommand ssh -W %h:%p stargate
 ```
 
 Notes:
 - UseKeychain only applies to macOS
 - The github.com entry will be used to securing access your GitHub repos
-- Make sure to put your username where you see ```<your_username>```
+- Make sure to put your username where you see ```your_username```
 
-Once you have editor or created ```.ssh/config```, set its permissions:
+Once you have edited or created ```.ssh/config```, set its permissions:
 
 ```text
 % chmod 600 config
 ```
 
-Now you have everything ready on your local machine. We need to add your public key to your ```.ssh/authorized_keys``` file on stargate. You can do this using the ```ssh-copy-id``` command:
+Now you have everything ready on your local machine. We need to add your public key to your ```.ssh/authorized_keys``` file on stargate. You can do this using the ```ssh-copy-id``` command on your local machine:
 
 ```text
 % ssh-copy-id -i ~/.ssh/id_ed25519_cs326_2023s <username>@stargate.cs.usfca.edu```
@@ -211,11 +211,13 @@ gcc version 12.2.0 (g2ee5e430018)
 For labs and projects, I will provide initial starter xv6 code, but for now you can clone your own copy of xv6 to compile and run. Because you will be creating several copies of xv6 it will take quite a bit of disk space. You will not have enough room in your normal home directory to do all of the labs and projects for this class. Instead, you have access to a locally mounted disk for your work.
 
 ```text
-$ cd /home2/<username>
+$ cd /home2/username
 $ mkdir test-xv6 
 $ cd test-xv6
 $ git clone git@github.com:mit-pdos/xv6-riscv.git
 ```
+
+Be sure to substitute ```username``` with your username.
 
 ## Compile and Run xv6
 
@@ -226,7 +228,7 @@ $ cd xv6-riscv
 $ make qemu
 ```
 
-After lots of file are compiled, you should see:
+After lots of files are compiled, you should see:
 
 ```text
 qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 3 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
@@ -239,7 +241,7 @@ init: starting sh
 $
 ```
 
-You can try some basic command in xv6:
+You can try some basic commands in xv6:
 
 ```text
 $ ls
@@ -275,6 +277,8 @@ CTRL-a x
 
 That is type ```CTRL-a``` then ```x```.
 
+On many computer keyboards the ```CTRL``` key will be labels ```control```.
+
 And you should see something like:
 
 ```text
@@ -284,7 +288,7 @@ $
 
 ## Adding new user programs to xv6
 
-Once you have everything setup so you can access griffin and build/run xv6, you can now added new user-level programs to xv6. You will add two programs to xv6: ```hello.c``` and ```sumargs.c```.
+Once you have everything set up so you can access griffin and build/run xv6, you can now added new user-level programs to xv6. You will add two programs to xv6: ```hello.c``` and ```sumargs.c```.
 
 Consider ```hello.c```:
 
@@ -301,7 +305,16 @@ main(int argc, char *argv[])
 }
 ```
 
-Add this file to the user directory in the xv6 repo. Then edit the Makefile in the root directory of the xv6 repo and look for the UPROGS variable:
+Add this file to the user directory in the xv6 repo. Notice that this program does not use the typical C header files:
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+```
+
+xv6 has a limited C number of C library functions. The prototypes for these functions are found in ```user/user.h``` and implemented in ```user/ulib.c```.
+
+Next edit the Makefile in the root directory of the xv6 repo and look for the UPROGS variable:
 
 ```text
 UPROGS=\
@@ -349,7 +362,9 @@ $ git clone git@github.com:phpeterson-usf/autograder.git
 
 Note: Repos that start with git@github.com require that you have ssh access to GitHub configured properly.
 
-No we need to make sure the grade program is available on your PATH.  A common approach is to create a local bin directory in your home directory ```~/.local/bin``` and put this on your PATH. We can link the grade program to this location:
+Note: You could also clone the Autograder in your ```/home2``` directory.
+
+Now we need to make sure the grade program is available on your PATH.  A common approach is to create a local bin directory in your home directory ```~/.local/bin``` and put this on your PATH. We can link the grade program to this location:
 
 ```text
 $ cd
@@ -399,7 +414,7 @@ usage: grade [-h] [-d DATE] [-e EXEC_CMD] [-n TEST_NAME] [-p PROJECT]
 grade: error: the following arguments are required: action
 ```
 
-Next we need to clone the cs326 tests repo and configure the Autograder to point to this repo:
+Next, we need to clone the cs326 tests repo and configure the Autograder to point to this repo:
 
 ```text
 $ cd
@@ -407,7 +422,7 @@ $ cs cs326-2023s
 $ clone git@github.com:USF-CS326-S23/tests.git
 ```
 
-Next, you need to edit the Autograder configuration file with a console-based editor:
+You need to edit the Autograder configuration file with a console-based editor:
 
 ```text
 $ micro ~/.config/grade/config.toml
@@ -422,7 +437,7 @@ tests_path = "~/cs326-2023s/tests"
 If everything is correct, you can now go to your lab01 repo and type:
 
 ```text
-grade test -p lab01
+$ grade test -p lab01
 . 01(50)+ 02(50)+ 100/100
 ```
 
