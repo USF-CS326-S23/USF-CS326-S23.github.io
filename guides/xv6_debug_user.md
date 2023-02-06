@@ -47,7 +47,7 @@ After you program runs, you can check the ```debug.log```:
 $ cat debug.log
 ```
 
-## Debuggin with gdb
+## Debugging with gdb
 
 It is possible to use gdb to debug both xv6 user programs and kernel code. We will focus on user code here.
 
