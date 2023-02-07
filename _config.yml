@@ -21,6 +21,10 @@ baseurl: '/' # the subpath of your site, e.g. /blog
 url: 'https://cs326.cs.usfca.edu' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
+logo: "/assets/images/usfcs_logo.png"
+
+
+
 # Theme settings
 remote_theme: just-the-docs/just-the-docs@v0.4.0.rc4
 #color_scheme: light
