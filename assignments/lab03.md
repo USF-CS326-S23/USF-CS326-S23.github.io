@@ -43,6 +43,9 @@ int readline(int, char *, int);
 ```
 After you do this, you can remove ```readline()``` from ```cat.c``` and ```sort.c```. You will also be using ```readline()```  in ```head.c``` and ```tail.c```.
 
+### Update ```cat -n```
+
+I have added tests in lab03 that more fully tests ```cat -n```. That is, the tests in lab02 only show 9 lines or less. You may have to update you implementation of ```cat -n``` to handle line numbers greater than 9.
 
 ## head 
 [**EASY**]
