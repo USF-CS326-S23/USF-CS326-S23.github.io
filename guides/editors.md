@@ -106,12 +106,10 @@ backups  bindings.json  buffers  colorschemes  settings.json
 {
     "Alt-a": "SelectAll",
     "Alt-e": "CommandMode",
-    "Ctrl-d": "DeleteChar",
     "Ctrl-a": "StartOfLine",
     "Ctrl-e": "EndOfLine",
     "Ctrl-j": "JumpLine",
-    "Ctrl-k": "CutToEndOfLine",
-    "Ctrl-r": "HSplit",
+        "Ctrl-r": "HSplit",
     "Ctrl-y": "Paste",
     "CtrlDown": "CursorPageDown",
     "CtrlLeft": "PreviousTab",
