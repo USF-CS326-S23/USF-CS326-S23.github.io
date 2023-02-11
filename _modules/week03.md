@@ -15,7 +15,13 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/LHbz0GSquzNFccE5_5Oap0f33xti
 
 Wed, Feb 8
 : **Lab**{: .label .label-purple } Lab02, Lab03, Local Dev Install
+: No recording or notes.
 
 Thu, Feb 9
 : **Lec**{: .label .label-green } Lab03 Q&A xv6 Memory
 : Reading: Chapter 2 [xv6 book](assignments/book-riscv-rev3.pdf)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/qgG0ltydoK0XHLBtW_R2c22VaeAjPLEXyMsWb6Fi42FR70uRWN-5k_H3o1hHArnl.HY45eBC6DuvkWwXO?startTime=1675958675000),
+          [iPad Notes](/files/CS326-01 2023-02-09 User Memory.pdf)
+&nbsp; &nbsp;
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/9LkGuerRR6StxDt0jvhO-zAFIpsWyitvFQgDXy3_Nql0zac_x2NIfWFrkkG8ahkU.yKkC44zk1r_oMU0i?startTime=1675982155000),
+        [iPad Notes](/files/CS326-02 2023-02-09 User Memory.pdf)
