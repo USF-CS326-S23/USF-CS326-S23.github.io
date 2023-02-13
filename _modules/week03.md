@@ -18,7 +18,7 @@ Wed, Feb 8
 : No recording or notes.
 
 Thu, Feb 9
-: **Lec**{: .label .label-green } Lab03 Q&A xv6 Memory
+: **Lec**{: .label .label-green } Lab03 Q&A xv6 User Memory
 : Reading: Chapter 2 [xv6 book](assignments/book-riscv-rev3.pdf)
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/qgG0ltydoK0XHLBtW_R2c22VaeAjPLEXyMsWb6Fi42FR70uRWN-5k_H3o1hHArnl.HY45eBC6DuvkWwXO?startTime=1675958675000),
           [iPad Notes](/files/CS326-01 2023-02-09 User Memory.pdf)
