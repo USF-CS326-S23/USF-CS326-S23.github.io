@@ -20,8 +20,8 @@ Wed, Feb 15
 
 Thu, Feb 16
 : **Lec**{: .label .label-green } Project01 Overview
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/bSd9Aht0E0jhQQqA2Db56zOaLcNbhwjwz65A9OGe9lHuQWe8W-JHZ2durjBbVF4g.e44jmR0Pz2nwlzVi?startTime=1676563526000),
+          [iPad Notes](/files/CS326-01 2023-02-16 Project01 Overview.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/fWIdT15c56ApivLVDPqDTY49lWBkHzu8VYh0TlrwQzu56DYoNAw3yZw-skosZtdX.uRFlay-CMufZzdf3?startTime=1676587107000),
+        [iPad Notes](/files/CS326-02 2023-02-16 Project01 Overview.pdf)
