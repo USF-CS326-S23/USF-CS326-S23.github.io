@@ -20,7 +20,9 @@ permalink: /assignments/project1
 1. [Overview](#overview)
 2. [Preliminaries](#preliminaries)
 3. [Heap Allocator](#heap-allocator)
-
+4. [Grading Rubric](#grading-rubric)
+5. [Code and Repo Quality](#code-and-repo-quality)
+6. [Autograder Tests](#autograder-tests)
 
 ## Overview
 
@@ -138,14 +140,50 @@ To keep track of memory blocks, we are going to use a memory block header:
 ```c
 struct block_hdr {
   struct list_elem elem;
-  char name[32];
+  char name[8];
   int used;
   int size;
 };
 ```
 Every block of memory that we manage will have a block header. Since we are implementing ```malloc()/free()```, we can't use ```malloc()/free()``` for block headers. Instead we will embed the block headers in the heap space. That is, each block of memory will have a header associated with it. So, a block will have a header and then the usable space in the block.
 
-## Autograder tests.
+## Grading Rubric
+
+Your Project01 score will come from two parts: functionaly that is determined by passing the autograder tests and repo and code quality.
+
+| Rubric Item | Score Percentage |
+|-------------|------------------|
+| Tests       | 70%              |
+| Quality     | 30%              |
+
+
+You should plan to complete the project on time. If you don't complete functionality on team, that is, if you don't pass all the tests, push what you have working. You will have one week after scores are posted to Canvas to earn upto 50% back on missing or incomplete functionality. You can get 100% back of points deducted for code and repo quality within one week after scores are posted to Canvas.
+
+## Code and Repo Quality
+
+### Code
+
+Writing consice, consistent, and well structured code takes practice. Here are things we are looking for in terms of code quality:
+
+- Consistent formatting of code
+  - In our case, we will follow the xv6 formatting conventions
+- Consistent indentation
+- Consistent vertical spacing (newlines)
+- Consistent spacing around expressions and statemments
+- Consistent naming of functions and variables
+  - We are using Snake Case (e.g., ```malloc_name()```)
+- Consistent comments, such as capitolization and spacing
+- No commented out code
+- No redundant code
+- No excessively long functions
+  - If a function becomes long, break up the code in to multiple functions
+- Pick easier to understand code over shorter, but more complicated code
+
+### Repo
+
+Your repo should be complete in that if we clone it, it should build and run as exepected. However, your repo should not include an extra files or generated files like object files and executables. Please check that your repo is complete by cloning it from GitHub to a new location and run the Autograder. Also, check that you don't have any extra files.
+
+## Autograder Tests
 
 Here is an overview of each of the tests and the type of functionality that is being tested.
 
