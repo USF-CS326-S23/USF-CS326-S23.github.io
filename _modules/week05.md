@@ -17,8 +17,8 @@ Wed, Feb 22
 
 Thu, Feb 23
 : **Lec**{: .label .label-green } Project01 Q&A and Advanced Heap Management
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/ULtMVdZTLoCNTLi25p2_GlkrHugYk-XdcoB2_t5-RX3k1DFy5zXNkMB4iYBYwnDW.0bNPsNOI6ItPP4Z1?startTime=1677168064000),
+          [iPad Notes](/files/CS326-01 2023-02-23 Sketch Local Dev Adv Heap.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/KEYi9UjgJZjnVY8UeF0ZOrs2B_BIHHHT7BciycNO3SRUl1IXlS22PJaFHLNgow8.C7MviLHAQSLxbwBU?startTime=1677191903000),
+        [iPad Notes](/files/CS326-02 2023-02-23 Sketch Local Dev Adv Heap.pdf)
