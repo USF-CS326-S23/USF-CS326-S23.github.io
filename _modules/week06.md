@@ -3,7 +3,7 @@ title: Week06
 ---
 
 Mon, Feb 27
-: **Project01**{: .label .label-red } 11:59pm
+: **Project01 due**{: .label .label-red } 11:59pm
 
 Tue, Feb 28
 : Project01 Interactive Grading - No lectures
