@@ -20,8 +20,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/bqrjQU2rn_n3EOFrjlSbaicoJj3h
 
 Thu, Mar 9
 : **Lec**{: .label .label-green } Pipes and Kernel Intro
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/ERI1k3l5OgbI-gb5rz_NvHN9hnkiAlPtpSAKSYf7ZCbx2NSF8uLu3JJL2uq7ntbc.lgOZk-upOiktmNFI?startTime=1678378064000),
+          [iPad Notes](/files/CS326-01 2023-03-09 Pipes and Kernel Intro.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/vP1GiIFgS_mBaHmtGgjG4hQmT0XaL-C392EKr4EVL8FqW94zi5D5pNRVwklzbB4d.kupOaH8C4-vSJaef?startTime=1678401869000),
+        [iPad Notes](/files/CS326-02 2023-03-09 Pipes And Kernel Intro.pdf)
