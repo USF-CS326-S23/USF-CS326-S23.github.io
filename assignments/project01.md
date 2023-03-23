@@ -6,7 +6,7 @@ parent: Assignments
 permalink: /assignments/project1
 ---
 
-# Project01 Heap Allocator
+# Project01 Heap Allocator (10%)
 
 ## Deliverables due Mon Feb 27 by 11:59pm in your Project01 GitHub repo
 

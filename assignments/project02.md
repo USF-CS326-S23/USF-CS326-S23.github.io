@@ -6,7 +6,7 @@ parent: Assignments
 permalink: /assignments/project02
 ---
 
-# Project02 Shell History
+# Project02 Shell History (5%)
 
 ## Deliverables due Tue Mar 28 by 11:59pm in your project04 GitHub repo
 
@@ -54,7 +54,6 @@ $ history
     4  echo foo
     5  history
 $ !2
-echo bye
 bye
 $ history
     1  echo hi
@@ -65,7 +64,7 @@ $ history
     6  echo bye
     7  history
 $ !5
-history
+$ history
     1  echo hi
     2  echo bye
     3  history
@@ -87,25 +86,28 @@ $ history
     8  history
     9  history
 $ !ec
-echo bye
 bye
 $ mkdir foo
 $ cd foo
 $ cd ..
 $ history
-    4  echo foo
     5  history
     6  echo bye
     7  history
     8  history
     9  history
-   10  mkdir foo
-   11  cd foo
-   12  cd ..
-   13  history
+   10  echo bye
+   11  mkdir foo
+   12  cd foo
+   13  cd ..
+   14  history
+$ !4
+-sh: !4: event not found
+$ !baz
+-sh: !baz: event not found
 $
 ```
 
 ### Implementation
 
-For your implementation you should use the linked list implementation to save the history. You should only store the 10 most recent commands.
+For your implementation you should use the linked list implementation to save the history. You should only store the 10 most recent commands. You can add your code directly to ```user/sh.c```, but keep your code together in one location.
