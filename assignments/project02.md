@@ -1,0 +1,109 @@
+---
+layout: default
+title: Project02
+nav_order: 6
+parent: Assignments
+permalink: /assignments/project02
+---
+
+# Project02 Shell History
+
+## Deliverables due Tue Mar 28 by 11:59pm in your project04 GitHub repo
+
+- A copy of xv6 with your modified implementation of sh with history support
+- Your implemenation should pass all of the Project02 Autograder tests.
+- Your source code should conform to xv6 formatting conventions.
+- Your Project02 repo should not have any extraneous files or build artifacts
+- Make sure to test your repo by cloning from GitHub to a different location and run the Autograder. This will catch problems like missing files.
+
+# Contents
+1. [Overview](#overview)
+2. [History](#history)
+3. [Implementation](#implementation)
+
+## Overview
+
+Shell command line history is a very useful feature. The xv6 shell (sh.c) does not currently support command line history. Your job in this project is to add command line history.
+
+### History
+
+You will support the following shell built in commands for history:
+
+```text
+history
+!<text>
+!<num>
+```
+The ```history``` builtin will list the history of commands:
+
+```text
+$ echo hi
+hi
+$ echo bye
+bye
+$ history
+    1  echo hi
+    2  echo bye
+    3  history
+$ echo foo
+foo
+$ history
+    1  echo hi
+    2  echo bye
+    3  history
+    4  echo foo
+    5  history
+$ !2
+bye
+$ history
+    1  echo hi
+    2  echo bye
+    3  history
+    4  echo foo
+    5  history
+    6  echo bye
+    7  history
+$ !5
+$ history
+    1  echo hi
+    2  echo bye
+    3  history
+    4  echo foo
+    5  history
+    6  echo bye
+    7  history
+    8  history
+$
+$
+$ history
+    1  echo hi
+    2  echo bye
+    3  history
+    4  echo foo
+    5  history
+    6  echo bye
+    7  history
+    8  history
+    9  history
+$ !ec
+bye
+$ mkdir foo
+$ cd foo
+$ cd ..
+$ history
+    4  echo foo
+    5  history
+    6  echo bye
+    7  history
+    8  history
+    9  history
+   10  mkdir foo
+   11  cd foo
+   12  cd ..
+   13  history
+$
+```
+
+### Implementation
+
+For your implementation you should use the linked list implementation to save the history. You should only store the 10 most recent commands.
