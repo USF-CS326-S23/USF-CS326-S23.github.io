@@ -54,6 +54,7 @@ $ history
     4  echo foo
     5  history
 $ !2
+echo bye
 bye
 $ history
     1  echo hi
@@ -64,7 +65,7 @@ $ history
     6  echo bye
     7  history
 $ !5
-$ history
+history
     1  echo hi
     2  echo bye
     3  history
@@ -86,6 +87,7 @@ $ history
     8  history
     9  history
 $ !ec
+echo bye
 bye
 $ mkdir foo
 $ cd foo
