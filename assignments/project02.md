@@ -110,4 +110,6 @@ $
 
 ### Implementation
 
-For your implementation you should use the linked list implementation to save the history. You should only store the 10 most recent commands. You can add your code directly to ```user/sh.c```, but keep your code together in one location.
+For your implementation you should use the linked list implementation to save the history. You should only store the 10 most recent commands. You can add your code directly to ```user/sh.c```, but keep your code together in one location. Project02 will not be interactively graded, but we will review your code for quality.
+
+
