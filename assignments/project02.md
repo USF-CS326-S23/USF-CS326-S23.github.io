@@ -64,7 +64,7 @@ $ history
     6  echo bye
     7  history
 $ !5
-$ history
+history
     1  echo hi
     2  echo bye
     3  history
