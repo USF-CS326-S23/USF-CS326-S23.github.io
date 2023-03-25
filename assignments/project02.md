@@ -89,9 +89,10 @@ $ history
 $ !ec
 echo bye
 bye
-$ mkdir foo
-$ cd foo
-$ cd ..
+$ echo foo
+foo
+$ wc README
+$ grep ACK README
 $ history
     5  history
     6  echo bye
@@ -99,9 +100,9 @@ $ history
     8  history
     9  history
    10  echo bye
-   11  mkdir foo
-   12  cd foo
-   13  cd ..
+   11  echo foo
+   12  wc README
+   13  grep ACK README
    14  history
 $ !4
 -sh: !4: event not found
@@ -114,9 +115,9 @@ $ history
     8  history
     9  history
    10  echo bye
-   11  mkdir foo
-   12  cd foo
-   13  cd ..
+   11  echo foo
+   12  wc README
+   13  grep ACK README
    14  history
    15  foobar
    16  history
