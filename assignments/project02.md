@@ -54,6 +54,7 @@ $ history
     4  echo foo
     5  history
 $ !2
+echo bye
 bye
 $ history
     1  echo hi
@@ -86,6 +87,7 @@ $ history
     8  history
     9  history
 $ !ec
+echo bye
 bye
 $ mkdir foo
 $ cd foo
@@ -105,6 +107,19 @@ $ !4
 -sh: !4: event not found
 $ !baz
 -sh: !baz: event not found
+$ foobar
+exec foobar failed
+$ history
+    7  history
+    8  history
+    9  history
+   10  echo bye
+   11  mkdir foo
+   12  cd foo
+   13  cd ..
+   14  history
+   15  foobar
+   16  history
 $
 ```
 
