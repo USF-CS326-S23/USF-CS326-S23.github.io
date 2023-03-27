@@ -6,7 +6,7 @@ parent: Assignments
 permalink: /assignments/project02
 ---
 
-# Project02 Shell History (5%)
+# Project02 Shell History (10%)
 
 ## Deliverables due Tue Mar 28 by 11:59pm in your project04 GitHub repo
 

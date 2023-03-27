@@ -24,8 +24,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/FYVgGbrV_bV18km4xZg3k8Tr0S7F
 
 Thu, Mar 23
 : **Lec**{: .label .label-green } System Calls
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/tH1rO5oW5CAvTIZRST9oF-b4Ksv020M1UyL8T_AzPuaiYYoBX-mUsZVxcQ0BQHDM.h4o8vRICSg8PZ3-_?startTime=1679584182000),
+          [iPad Notes](/files/CS326-01 2023-03-23 System Calls.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/dPbWgYxsR6LIJIxWapzHRWWrNxrOKsK9HGQZ0sLWVeOJgbSnBBUCN8TaRmxcrLPq.aXF4BAtTB0Stsbmm?startTime=1679608146000),
+        [iPad Notes](/files/CS326-02 2023-03-23 System Calls.pdf)
