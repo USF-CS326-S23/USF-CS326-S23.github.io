@@ -21,8 +21,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/Bm3kzAizDe51645Qym0NZA0c3IqT
 
 Thu, Mar 30
 : **Lec**{: .label .label-green } Process Scheduling
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/Qp-w2FhtaSJcdild-4BfnUn38vMb7ee9yIwR7RfVs4ozQFA9nZt9OU9EIkZzVLVN.PvMGu1SLvkIKsEA9?startTime=1680188886000),
+          [iPad Notes](/files/CS326-01 2023-03-30 Process Scheduling.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/EGD7qS5LXAFltqfAvgwJ6anDBaoq1cTID20ZsNTNtFCel0WxNWINiD26oPuPKETU.2RX4d1PARlj9AdDO?startTime=1680212273000),
+        [iPad Notes](/files/CS326-02 2023-03-30 Process Scheduling.pdf)
