@@ -34,9 +34,9 @@ Here is the basic output of our new ps command:
 
 ```text
 $ ps
-PID=1 NAME=init SIZE=24576
-PID=2 NAME=sh SIZE=28672
-PID=3 NAME=ps SIZE=24576
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=3 NAME=ps
 ```
 
 We will use this ```field=value``` form to keep formatting simple.
@@ -62,19 +62,19 @@ Here are some examples:
 init: starting sh
 $ busymany 200 10
 $ ps
-PID=1 NAME=init SIZE=24576
-PID=2 NAME=sh SIZE=28672
-PID=14 NAME=ps SIZE=24576
-PID=4 NAME=busy[A] SIZE=24576
-PID=5 NAME=busy[B] SIZE=24576
-PID=6 NAME=busy[C] SIZE=24576
-PID=7 NAME=busy[D] SIZE=24576
-PID=8 NAME=busy[E] SIZE=24576
-PID=9 NAME=busy[F] SIZE=24576
-PID=10 NAME=busy[G] SIZE=24576
-PID=11 NAME=busy[H] SIZE=24576
-PID=12 NAME=busy[I] SIZE=24576
-PID=13 NAME=busy[J] SIZE=24576
+PID=1 NAME=init
+PID=2 NAME=sh
+PID=14 NAME=ps
+PID=4 NAME=busy[A]
+PID=5 NAME=busy[B]
+PID=6 NAME=busy[C]
+PID=7 NAME=busy[D]
+PID=8 NAME=busy[E]
+PID=9 NAME=busy[F]
+PID=10 NAME=busy[G]
+PID=11 NAME=busy[H]
+PID=12 NAME=busy[I]
+PID=13 NAME=busy[J]
 ```
 
 ```text
@@ -97,7 +97,7 @@ PID=13 NAME=busy[J] SIZE=24576 STATE=sleep NSCHED=29 NTICKS=0
 ```
 Note that ```NTICKS=0``` in this example is ok. The busymany program "sleeps" while busy waiting, so the processes are not consuming CPU time or very little.
 
-Note that the values of NSCHED and NTICKS are not deterministic, so I can't provide autograder tests. Instead you will submit two output files in your lab04.
+Note that the values of NSCHED and NTICKS are not deterministic, so I can't provide autograder tests. Instead you will submit two output files in your lab05.
 
 ```text
 $ python3 runxv6.py "ps a" > ps1.out
