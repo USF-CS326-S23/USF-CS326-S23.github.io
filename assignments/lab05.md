@@ -113,16 +113,16 @@ The lab05 starter code contains all the code we have developed so far in class. 
 - ```busymany.c``` - a extended version of busy.c that allow multiple processes to be created at once. This version uses busy sleeping instead of busy waiting so the processes do not consume CPU time, which can slow the system down with many processes.
 - New systems calls:
   - ```sname(const char *name)``` - change the name of the currently running process. This is used by ```busymany.c``` so we can differentiate the processes create in the ps output.
-  - ```uproc(int pid, struct uproc *up_p)``` - This the system call we developed in class to retrieve process information by pid.
+  - ```uproc(int pid, uint64 up_p)``` - This the system call we developed in class to retrieve process information by pid.
 - ```uproc.c``` - a user-level program that calls the new ```uproc()``` to get and print process information given a pid as a command line argument.
 
 Your job will be to implement ```ps.c``` that provides the output given above. To do this you need to create a new user-level command in the ```user``` directory called ```ps.c```. You can start with the ```uproc.c``` program. To implement ```ps.c``` you will need to implement a new system call, ```sproc()```. The goal of ```sproc()``` will be to retrieve process information using the ```uproc struct```.
 
 You have two choices for implementing ```sproc()```:
 
-1. ```int sproc(int slot, struct uproc *up_p)```
+1. ```int sproc(int slot, uint64 up_p)```
 In this version, the ```sproc()``` system call will retrieve process information at index ```slot``` in the proc table using ```struct uproc *up_p```. That is, this will retrieve information about one process and your ```ps.c``` implementation will need to call ```sproc()``` ```NPROC``` times (64 by default) to get information about every process.
-2. ```int sproc(struct uproc *up_p)``` In this version, ```up_p``` is a pointer to a user-level ```struct uproc array```. In this system call, the kernel will populate the entire user-level arrar in one call. In this way, ```ps.c``` can iterate over the local ```uproc``` array to print information about every process.
+2. ```int sproc(uint64 up_p)``` In this version, ```up_p``` is a pointer to a user-level ```struct uproc array```. In this system call, the kernel will populate the entire user-level arrar in one call. In this way, ```ps.c``` can iterate over the local ```uproc``` array to print information about every process.
 
 Both versions have pros and cons. The first version is more like the ```uproc()`` system call we developed in class, but it introduces a lot of extra overhead because we need to issue 64 system calls to get all the process information. The first version could potentially display process information that is changing as ps is running. The second version, is faster because only one system call is issued. However, the second version requires enough memory for the entire process array. For 64 processes this is not a big deal, but if we had 10,000 processes it would be a different story.
 
