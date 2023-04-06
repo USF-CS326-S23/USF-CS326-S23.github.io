@@ -13,7 +13,7 @@ permalink: /assignments/lab05
 - A copy of xv6 with your modified implementation of ps
 - Your implemenation should pass all of the Lab05 Autograder tests.
 - Your source code should conform to xv6 formatting conventions.
-- For this lab you need to include your output for ```ps a``` (see below).
+- For this lab you need to include your output for ```ps a``` (see below) as files in your Lab05 repo.
 - Your Lab05 repo should not have any extraneous files or build artifacts
 - Make sure to test your repo by cloning from GitHub to a different location and run the Autograder. This will catch problems like missing files.
 
@@ -26,7 +26,7 @@ permalink: /assignments/lab05
 
 The Process Status (ps) command enables users to see all of the currently exeucting processes on a machine. The xv6 kernel provides a direct keyboard shortcut (CTRL-P) to see a list of the currently running processes. While this was intended as quick way to see all processes, it has limitations. With the keyboard shortcut, there is no way to provide command line options to control the information provided in the process listing. Also, because the shortcut causes the kernel to print the process list directly to the console device, you cannot redirect the output of ps to a file or via a pipe to another process (like grep).
 
-We are going to build a proper user-level ps command for xv6 that requires us to implement a new system call similar to the ```fstat()``` system call to get file status information from the kernel. The in addition to learning about ps functionality, the goal of this lab is to get your familiar with implementing system calls and how send arguments and data from user level to kernel level and vice versa.
+We are going to build a proper user-level ps command for xv6 that requires us to implement a new system call similar to the ```fstat()``` system call to get file status information from the kernel. In addition to learning about ps functionality, the goal of this lab is to get your familiar with implementing system calls and how send arguments and data from user level to kernel level and vice versa.
 
 ### Process Status
 
@@ -95,7 +95,7 @@ PID=11 NAME=busy[H] SIZE=24576 STATE=sleep NSCHED=28 NTICKS=0
 PID=12 NAME=busy[I] SIZE=24576 STATE=sleep NSCHED=28 NTICKS=0
 PID=13 NAME=busy[J] SIZE=24576 STATE=sleep NSCHED=29 NTICKS=0
 ```
-Note that ```NTICKS=0``` in this example is ok. The busymany program "sleeps" while busy waiting, so the processes are not consuming CPU time or very little.
+Note that ```NTICKS=0``` in this example is ok. The busymany program "sleeps" while busy waiting, so the processes are not consuming very much CPU time.
 
 Note that the values of NSCHED and NTICKS are not deterministic, so I can't provide autograder tests. Instead you will submit two output files in your lab05.
 
@@ -107,22 +107,22 @@ Add these to your xv6 directory in your lab05 GitHub Repo.
 
 ### Implementation
 
-The lab05 starter code contains all the code we have developed so far in class. I've created the lab05-starter repo by first committed a fresh version of xv6-riscv, then I added files and made modifications in further commits. In this way you can see how we evolved the xv6 code base. In particular here are the things that have been added:
+The lab05 starter code contains all the code we have developed so far in class. I've created the lab05-starter repo by first committing a fresh version of xv6-riscv, then I added files and made modifications in further commits. In this way you can see how we evolved the xv6 code base. In particular here are the things that have been added:
 
 - ```busy.c``` - our first version of process busy waiting for testing
-- ```busymany.c``` - a extended version of busy.c that allow multiple processes to be created at once. This version uses busy sleeping instead of busy waiting so the processes do not consume CPU time, which can slow the system down with many processes.
+- ```busymany.c``` - a extended version of busy.c that allows multiple processes to be created at once. This version uses busy sleeping instead of busy waiting so the processes do not consume much CPU time, which can slow the system down with many processes.
 - New systems calls:
   - ```sname(const char *name)``` - change the name of the currently running process. This is used by ```busymany.c``` so we can differentiate the processes create in the ps output.
-  - ```uproc(int pid, uint64 up_p)``` - This the system call we developed in class to retrieve process information by pid.
+  - ```uproc(int pid, struct uproc *up_p)``` - This the system call we developed in class to retrieve process information by pid.
 - ```uproc.c``` - a user-level program that calls the new ```uproc()``` to get and print process information given a pid as a command line argument.
 
 Your job will be to implement ```ps.c``` that provides the output given above. To do this you need to create a new user-level command in the ```user``` directory called ```ps.c```. You can start with the ```uproc.c``` program. To implement ```ps.c``` you will need to implement a new system call, ```sproc()```. The goal of ```sproc()``` will be to retrieve process information using the ```uproc struct```.
 
 You have two choices for implementing ```sproc()```:
 
-1. ```int sproc(int slot, uint64 up_p)```
+1. ```int sproc(int slot, struct uproc *up_p)```
 In this version, the ```sproc()``` system call will retrieve process information at index ```slot``` in the proc table using ```struct uproc *up_p```. That is, this will retrieve information about one process and your ```ps.c``` implementation will need to call ```sproc()``` ```NPROC``` times (64 by default) to get information about every process.
-2. ```int sproc(uint64 up_p)``` In this version, ```up_p``` is a pointer to a user-level ```struct uproc array```. In this system call, the kernel will populate the entire user-level arrar in one call. In this way, ```ps.c``` can iterate over the local ```uproc``` array to print information about every process.
+2. ```int sproc(struct uproc *up_p)``` In this version, ```up_p``` is a pointer to a user-level ```struct uproc array```. In this system call, the kernel will populate the entire user-level arrar in one call. In this way, ```ps.c``` can iterate over the local ```uproc``` array to print information about every process.
 
 Both versions have pros and cons. The first version is more like the ```uproc()`` system call we developed in class, but it introduces a lot of extra overhead because we need to issue 64 system calls to get all the process information. The first version could potentially display process information that is changing as ps is running. The second version, is faster because only one system call is issued. However, the second version requires enough memory for the entire process array. For 64 processes this is not a big deal, but if we had 10,000 processes it would be a different story.
 
@@ -138,13 +138,12 @@ Note you shoud follow the steps we have developed in class for adding the new ``
 4. [KERNEL] In ```kernel/syscall.c``` you need to make two modifications:
   - Add ```extern uint64 sys_sproc()``` after the other externs for the other system calls.
   - Add an entry to the ```syscalls[]``` array at the end: ```[SYS_sproc]    sys_sproc,```
-5. [KERNEL] In ```kernel/sysproc.c``` add the ```sys_sproc()``` function. You can base this off of the ```sys_uproc()``` function in the same file. Note that it's implementation will depend on how you decide to implement ```sproc()```. It will either grab the slot number in arg 0 like ```sys_uproc()``` using ```argint()``` and then get the pointer to the user-level ```uproc struct``` using ```argaddr()```. Otherwise it will just get the pointer to the user-level ```uproc struct``` using ```argaddr()```.
-6. [KERNEL] In ```kernel/proc.c``` Add a new ```sproc()``` function based on the existing ```uproc()``` function implementation. Again, how you implement this will depend on your choice of reading one slot at a time versus reading all the slots at once.
+5. [KERNEL] In ```kernel/sysproc.c``` add the ```sys_sproc()``` function. You can base this off of the ```sys_uproc()``` function in the same file. Note that it's implementation will depend on how you decide to implement ```sproc()```. It will either grab the slot number in arg 0 like ```sys_uproc()``` using ```argint()``` and then get the pointer to the user-level ```uproc struct``` using ```argaddr()```. Otherwise it will just get the pointer to the user-level ```uproc struct``` using ```argaddr()```. Note that the convention in the xv6 kernel is use the ```uint64``` type for variables that will hold a user virtual address. So, in this case, in ```sys_uproc()``` you would declare ```up_p``` as ```uint64 up_p```.
+6. [KERNEL] In ```kernel/proc.c``` Add a new ```sproc()``` function based on the existing ```uproc()``` function implementation. Again, how you implement this will depend on your choice of reading one slot at a time versus reading all the slots at once. Note, as mentioned in the previous step we using ```uint64``` for user virtual addresses, so the prototypes will be:
+  - int sproc(int slot, uint64 up_p), or
+  - int sproc(uint64 up_p)
 7. [KERNEL] In ```kernel/defs.h``` in the ```// proc.c``` section add your prototype for ```sproc()```. This is needed so that the ```sysproc.c:sys_sproc()``` function can know the type signature for ```sproc()```.
 
 ***IMPORTANT*** You should not modify the existing ```uproc()``` system call. You need to leave this as is and add a new ```sproc()``` system call.
 
 After you have all this implemented you can start coding your ```user/ps.c``` based on the given ```user/uproc.c``` code. Note that you may find as you are coding ```ps.c``` you find problems in your ```sproc()``` system call implementation. This is normal and it will be an iterative process.
-
-
-
