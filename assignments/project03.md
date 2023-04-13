@@ -6,14 +6,14 @@ parent: Assignments
 permalink: /assignments/project03
 ---
 
-# Project03 Queue-based Scheduling in xv6
+# Project03 Queue-based Scheduling in xv6 (15%)
 
 ## Deliverables due Wed Apr 19 by 11:59pm in your Project03 GitHub repo
 
 Interactive grading for Project03 will take place on Thu Apr 20.
 
 - A copy of xv6 with your modified kernel that implements queue-based scheduling.
-- Your implemenation should pass all of the Project05 Autograder tests.
+- Your implemenation should pass all of the Project03 Autograder tests.
 - Your source code should conform to xv6 formatting conventions.
 - Your Project03 repo should not have any extraneous files or build artifacts
 - Make sure to test your repo by cloning from GitHub to a different location and run the Autograder. This will catch problems like missing files.
