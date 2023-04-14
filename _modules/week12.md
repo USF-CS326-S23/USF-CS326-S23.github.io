@@ -23,9 +23,9 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/zIF_T7xP0PAb_vRZay62ctyfU662
 
 Thu, Apr 13
 : **Lec**{: .label .label-green } Project03 Solution - run_list
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/8oj3kVMcZUQNrJq4ZayFdDfBrQoUI0BYozB4ee7JamNp9gdqSSI8KEwZSHzTEvCW.gNbezas7lv-6oEo6?startTime=1681398591000),
+          [iPad Notes](/files/CS326-01 2023-04-13 Project03 run_list.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/AwlmKvksvdIGQ6FsB0sYv0ndcpo-_LKwT31cm1dAVeXBe-5JW4jRTSixqWQxyYlw.TT14p89uje_5hcsn?startTime=1681422526000),
+        [iPad Notes](/files/CS326-02 2023-04-13 Project02 run_list.pdf)
 
