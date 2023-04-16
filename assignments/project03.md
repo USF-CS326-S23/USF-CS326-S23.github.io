@@ -54,19 +54,21 @@ First, we will add a queue-based ```unused_list``` linked list so that we can ea
          __LINE__, __func__, __VA_ARGS__); } while (0)
    ```
 3. In ```Makefile``` add ```$K/list.o``` to the ```OBJS``` variable.
-4. Modify ```kernel/assert.h``` to comment out ```UNUSED``` macro because it conflicts with the ```UNUSED``` enum in ```proc.h```.
-5. Modify ```kernel/assert.h``` to replace ```exit(-1)``` with ```panic("list")```.
-6. In ```kernel/proc.h``` add ```#include "kernel/list.h"``` at the top of the file (first line). Also add ```#include "kernel/debug.h```.
-7. In ```kernel/proc.h``` add ```struct list_elem elem;``` to ```struct proc```.
-8. Near the definition of ```struct proc proc[NPROC]``` add a global ```unused_list``` and a ```unused_lock```. This will be the list that holds ```UNUSED``` proc stucts. When we need a new proc struct we will just remove the proc struct at the head of the list. When we free a proc struct we will put it at the end of the list.
-9. In ```kernel/proc.c``` Add a new function, ```void proc_print_list(struct list *lp)``` that will print the given proc list (i.e., the ```unused_list``` or the ```run_list```). You cant use code from the ```procdump()``` function. For each process on the given list, this function should print ```SLOT=```, ```PID=```, ```NAME=```, and ```STATE=```. This function will be used for debugging purposes.
-10. In ```kernel/proc.c:procinit()``` add initialization of the ```unused_lock``` and the ```unused_list```. You can modify the for loop to added each proc entry to the back of the ```unused_list```.
-11. In ```kernel/proc.c:allocproc()``` remove the first element from the ```unused_list``` if one exists. If not, return 0. Make sure that you protect access ot the ```unused_list``` with the ```unused_lock```.
-12. In ```kernel/proc.c:freeproc()``` put the newly ```UNUSED``` proc on the ```unused_list```. Protect access with the ```unused_lock```.
+4. Modify ```kernel/assert.h``` to comment out ```UNUSED``` macro because it conflicts with the ```UNUSED``` enum in ```proc.h```. This is the first line in the file.
+5. Modify ```kernel/assert.h``` to replace ```exit(-1)``` with ```panic("list")```. If an assert fails we will just panic the kernel. In user space we just used ```exit(-1)```.
+6. Modify ```kernel/list.h``` to replace ```#include "user/assert.h"``` with ```#include "kernel/assert.h```. This should be at line 85 and is needed to have the kernel ```list.h``` include the kernel ```assert.h```.
+7. In ```kernel/proc.h``` add ```#include "kernel/list.h"``` at the top of the file (first line). Also add ```#include "kernel/debug.h``` on the second line.
+8. In ```kernel/proc.h``` add ```struct list_elem elem;``` to ```struct proc```.
+9. Below the definition of ```struct proc proc[NPROC]``` add a global ```unused_list``` and a ```unused_lock```. This will be the list that holds ```UNUSED``` proc stucts. When we need a new proc struct we will just remove the proc struct at the head of the list. When we free a proc struct we will put it at the end of the list.
+10. In ```kernel/proc.c``` Add a new function, ```void proc_print_list(struct list *lp)``` that will print the given proc list (i.e., the ```unused_list``` or the ```run_list```). You cant use code from the ```procdump()``` function. For each process on the given list, this function should print ```SLOT=```, ```PID=```, ```NAME=```, and ```STATE=```. This function will be used for debugging purposes.
+11. In ```kernel/proc.c:procinit()``` add initialization of the ```unused_lock``` and the ```unused_list```. You can modify the for loop to added each proc entry to the back of the ```unused_list```.
+12. In ```kernel/proc.c:allocproc()``` remove the first element from the ```unused_list``` if one exists. If not, return 0. Make sure that you protect access ot the ```unused_list``` with the ```unused_lock```.
+13. In ```kernel/proc.c:freeproc()``` put the newly ```UNUSED``` proc on the ```unused_list```. Protect access with the ```unused_lock```.
+14. With these changes you should be able to ```make qemu``` and run xv6 as normal, e.g., execute commands from the xv6 shell.
 
 Second, we will add queue-based schedule using a ```run_list``` linked list.
 
-1. In ```kernel/proc.c``` near the definition of ```struct proc proc[NPROC]``` add a global ```run_list``` and a ```run_lock```. This will be the list that holds ```RUNNABLE``` processes and the scheduler will pick the next process to run in Round Robin order by picking the process at the head of the ```run_list```.
+1. In ```kernel/proc.c``` below the definition of ```struct proc proc[NPROC]``` add a global ```run_list``` and a ```run_lock```. This will be the list that holds ```RUNNABLE``` processes and the scheduler will pick the next process to run in Round Robin order by picking the process at the head of the ```run_list```.
 2. In ```kernel/proc.c:procinit()``` add initialization of the ```run_lock``` and the ```run_list```.
 3. At the end of ```kernel/proc.c:userinit()``` add the user init proc to the ```run_list```. Be sure to protect the update to the ```run_list``` with the ```run_lock```. Generally, we are looking for places in ```proc.c``` where we update the state of a proc to ```RUNNABLE``` and making sure we put the proc on the ```run_list```.
 4. In ```kernel/proc.c:fork()``` add the newly forked process to the ```run_list``` after the state is set to ```RUNNABLE```.
@@ -76,7 +78,8 @@ Second, we will add queue-based schedule using a ```run_list``` linked list.
 Third, make the scheduler more energy efficient by adding the WFI (Wait for Interrupt) instruction in the scheduler loop.
 
 1. In ```kernel/proc.c:scheduler()``` if you find there are no processes on the ```run_list```, issue the WFI instruction like this: ```asm volitile("wfi")```. This will put the CPU into a low-power state just waiting for an interrupt. When the WFI instruction returns, you can just continue the scheduler loop.
-2. Check to see that you now have near zero CPU utilization of Qemu/xv6 when xv6 is idle.
+2. Check to see that you now have near zero CPU utilization of Qemu/xv6 when xv6 is idle. You can do this using the ```top``` command on Linux or you can 
+use Activity Monitor on macOS.
 
 Time permitting we may explore adding queue support to channels to support fair ordering of access to resources like pipes.
 
