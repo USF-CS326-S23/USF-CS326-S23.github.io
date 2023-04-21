@@ -13,11 +13,11 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/GkBlqD43oLDGAfGD3CQtTCKH_m8q
 Wed, Apr 19
 : **Project03 due**{: .label .label-red } 11:59pm
 : **Lab**{: .label .label-purple } Project03 Help and gdb 101
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/7gBA5xqDnPvnm_6nDvZUubHS9knXRpBbArwNaRAFLYmxgOcjHSIyM2LZEjf8SxTr.pi0PVDHPQHOtzOvi?startTime=1681947991000),
+          [iPad Notes](/files/CS326-01 2023-04-19 Lab gdb Project03 help.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/Vik_o3eWuFfoZGVSIlohWos2jY4eK7bW3vZciqLeX-9Gr654MHvsKI0hfFB_L82b.mYu_wtnDTJ94IOc9?startTime=1681953982000),
+        [iPad Notes](/files/CS326-02 2024-04-19 Lab gdb Project03 help.pdf)
 
 Thu, Apr 20
 : Project03 Interactive Grading
