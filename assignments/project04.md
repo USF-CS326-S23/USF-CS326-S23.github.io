@@ -6,7 +6,7 @@ parent: Assignments
 permalink: /assignments/project04
 ---
 
-# Project04 Page Tables and Virtual Memroy  (20%)
+# Project04 Page Tables and Virtual Memory (20%)
 
 ## Deliverables due Mon May 8th by 11:59pm in your Project04 GitHub repo
 
