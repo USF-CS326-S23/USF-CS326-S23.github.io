@@ -8,7 +8,7 @@ permalink: /assignments/project04
 
 # Project04 Page Tables and Virtual Memroy  (20%)
 
-## Deliverables due Mon May 15th by 11:59pm in your Project04 GitHub repo
+## Deliverables due Mon May 8th by 11:59pm in your Project04 GitHub repo
 
 - A copy of xv6 with your modified kernel to support the virtual memory requirements described below.
 - Your implemenation should pass all of the Project04 Autograder tests.
