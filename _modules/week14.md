@@ -20,9 +20,9 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/kfky0VxqwMlpLPxqT9yIiJMR13vx
 
 Thu, Apr 20
 : **Lec**{: .label .label-green } Process Shared Memory
-: Sec01 - [Recording](),
-          [iPad Notes](/files/)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/h2CCNMKX5cApLrHSVb3s2BozJfXoyasyreXZEcY3r8wN_vFvsfdG4AzIMlj5Xheq.yAQFniFS16M-LNvb?startTime=1682608307000),
+          [iPad Notes](/files/CS326-01 2023-04-27 Process Shared Memory.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes](/files/)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/7gZUAtsfqoECtbVlvdHTNLG8iZ5A2AP-5agfZe13qN2BwrWPIaNfcYQz-U956n2F._6FTB7VkLxmGLkyu?startTime=1682631771000),
+        [iPad Notes](/files/CS326-02 2023-04-27 Process Shared Memory.pdf)
 
