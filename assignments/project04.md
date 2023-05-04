@@ -38,7 +38,7 @@ You should put your implementation of ```kpages()``` into ```kernel/kalloc.c``` 
 
 # Page Directories
 
-To get experience traversing the page table structure you are going to add two more system calls: ```int udirs(void)``` and ```int kdirs()```. The ```udirs()``` system call will return number of allocated page directories for the calling user process and the ```kdirs()``` system call will return the number of allocated page directories for the kernel page table. The programs ```user/udirs.c``` and ```user/kdirs.c``` will show these values and will be used to test your implementations.
+To get experience traversing the page table structure you are going to add two more system calls: ```int udirs(void)``` and ```int kdirs(void)```. The ```udirs()``` system call will return number of allocated page directories for the calling user process and the ```kdirs()``` system call will return the number of allocated page directories for the kernel page table. The programs ```user/udirs.c``` and ```user/kdirs.c``` will show these values and will be used to test your implementations.
 
 You should put your implementations of ```udirs()``` and ```kdirs()``` in ```kernel/vm.c``` at the end of the file.
 
@@ -67,7 +67,7 @@ r = smem(p, 4*4096);
 
 p[0] = 'a';
 
-id = fork()
+id = fork();
 if(id == 0){
   p[0] = 'b';
   exit(0);
@@ -75,7 +75,7 @@ if(id == 0){
 
 wait(0);
 if(p[0] == 'b'){
-    printf("success");
+    printf("success\n");
 }
 ```
 
