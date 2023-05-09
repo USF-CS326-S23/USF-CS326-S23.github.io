@@ -18,6 +18,7 @@ permalink: /assignments/project05
 - Your second objective is to explain how you will extend the given code in order to support additional container features outlined below.
 - Your deliverable will be design document that explains the changes you propose to make to the given kernel code.
 - You document should be either and ASCII text file (.txt) or a Markdown (.md) file. You should name this file ```project05-design.txt``` or ```project05-design.md```.
+- In your design document you should list all of your team members.
 - You can work in groups of up to 3 people to complete this project. Please let me know by Tue May 10th your group. Groups of 1, 2 or 3 are all possible.
 - There will be no interactive grading for project05.
 - Each member of a group should submit the final design document to your own project05 repo in the top level (the same level as the xv6 directory).
