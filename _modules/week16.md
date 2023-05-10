@@ -15,7 +15,7 @@ Wed, May 10
 : **Lab**{: .label .label-purple } No lab section this week.
 
 Thu, May 11
-: **Lec**{: .label .label-green } Container Resource Control
+: **Lec**{: .label .label-green } Project05 Q&A OS Wrap UP Makeup Points
 : Sec01 - [Recording](#),
           [iPad Notes](#)
 &nbsp; &nbsp;
