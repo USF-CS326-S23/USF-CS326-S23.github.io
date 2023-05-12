@@ -16,8 +16,8 @@ Wed, May 10
 
 Thu, May 11
 : **Lec**{: .label .label-green } Project05 Q&A OS Wrap UP Makeup Points
-: Sec01 - [Recording](#),
-          [iPad Notes](#)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/_TtfyDjDGTgwxT4n_e-r1Rg1ojQ-CMwGOdvKDz9Wq5PRwrZUlq7uEKxnUxaa5pp5.BcNjtazU7o8EE6Nu?startTime=1683817645000),
+          [iPad Notes](/files/CS326-01 2023-05-11 Project05 Q&A Wrap-up.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](#),
-        [iPad Notes](#)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/ly_D4l9h8luPAj462LxrdX7tmLePp07D0NTHZFJg_B06p3-fXM1aYuwh6YjgJrih.eluGYCmvXSx6amo5?startTime=1683841503000),
+        [iPad Notes](files/CS326-02 2023-05-11 Project05 Q&A Wrap-up.pdf)
