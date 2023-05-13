@@ -103,7 +103,7 @@ For example you can start a new container like this:
  cstart foo console1 -s 500000 /foo 1000000 sh
 ```
 
-In a full solution, this should start a new container called foo on console1. It has a memory limit of 500000 bytes and a disk limit of 1000000. It will start sh in the container. Note that /foo will be an isolated part of the file system, so any programs that you want to run in the container should be copied in the container directory before you start the container. If any the process in a container causes the collective limit of all the container processes to be reached, new memory allocations should fail or new disk block allocations should fail. The container processes should be name-space isolated. Processes in a container should not be able to kill processes in other containers and they should be able to see processes in other containers. Similarly, processes in a container can only access files and directories that are contained in the ```root_dir```.
+In a full solution, this should start a new container called foo on console1. It has a memory limit of 500000 bytes and a disk limit of 1000000. It will start sh in the container. Note that /foo will be an isolated part of the file system, so any programs that you want to run in the container should be copied in the container directory before you start the container. If any the process in a container causes the collective limit of all the container processes to be reached, new memory allocations should fail or new disk block allocations should fail. The container processes should be name-space isolated. Processes in a container should not be able to kill processes in other containers and they should not be able to see processes in other containers. Similarly, processes in a container can only access files and directories that are contained in the ```root_dir```.
 
 The ```user/cinfo.c``` command is like ps for containers:
 
@@ -140,7 +140,7 @@ The given project05 starter code will only schedule processes in the root contai
 
 ## Question 2 - Process Namespace Isolation
 
-Explain how process namespace isolation is achieved in the project05 started code. Also, explain we would modify the ```user/ps.c``` program so that if it is executed within a container it will only show the processes running in that container.
+Explain how process namespace isolation is achieved in the project05 started code. Also, explain we would modify the kernel code and the ```user/ps.c``` program so that if it is executed within a container it will only show the processes running in that container.
 
 ## Question 3 - Memory Limiting
 
@@ -148,7 +148,7 @@ One of the parameters to ```proc.c:cfork()``` is ```max_memory_bytes```. Explain
 
 ## Question 4 - Filesystem Namespace Isolation
 
-One of the parameters to ```proc.c:cfork()``` is ```crootdir``` which is a path to the root directory for the container. Explain how to enforce processes running in a container to only be able to access files and directories within the ```crootdir``` path. Hint: learn how paths are resolved to inode pointers. Noted that each process has a ```cwd``` (current working directory) and paths can both be absolute (e.g. ```/foo/sh```) and relative (e.g., ```../sh```). For absolute paths, they should start at ```crootdir```. For relative paths, they should not be able to "break out" of the ```crootdir``` with ```../```. 
+One of the parameters to ```proc.c:cfork()``` is ```crootdir``` which is a path to the root directory for the container. Explain how to enforce processes running in a container to only be able to access files and directories within the ```crootdir``` path. Hint: learn how paths are resolved to inode pointers. Noted that each process has a ```cwd``` (current working directory) and paths can both be absolute (e.g. ```/foo/sh```) and relative (e.g., ```../sh```). For absolute paths, they should start at ```crootdir```. For relative paths, they should not be able to "break out" of the ```crootdir``` with ```../```. You need to also consider the case in which ```..``` is used in an absolute path, e.g., ```/foo/../../../sh```.
 
 ## Question 5 - Disk Space Limiting
 
